@@ -1,0 +1,30 @@
+
+* {
+    font-family: "Roboto", serif;
+    font-optical-sizing: auto;
+    font-weight: 100;
+    font-style: normal;
+    font-variation-settings: "wdth" 100;
+    margin: 0;
+}
+
+.container {
+    width: 100vw;
+    height: 100vh;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+h1.hero {
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: .5rem;
+}
+
+.text > p {
+    text-align: center;
+    line-height: 2rem;
+}
