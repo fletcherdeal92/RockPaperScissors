@@ -31,7 +31,9 @@ const getComputerChoice = () => {
 // get the choice of the player
 const getHumanChoice = () => {
     let playerInput = prompt("What's your move? Rock, Paper, or Scissors?")
-    if (playerInput.toLowerCase() === 'rock' || playerInput.toLowerCase() === 'paper' || playerInput.toLowerCase() === 'scissors') {
+    if (playerInput.toLowerCase() === 'rock' || 
+    playerInput.toLowerCase() === 'paper' || 
+    playerInput.toLowerCase() === 'scissors') {
         return playerInput.toLowerCase()
     } else {
         return `You input "${playerInput}," which is invalid. Please use Rock, Paper, or Scissors.`
