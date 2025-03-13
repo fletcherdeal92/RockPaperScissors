@@ -1,9 +1,15 @@
 //Rock, Paper, Scissors
-
+//🖐️✊✌️
 
 let humanScore = 0;
 let computerScore = 0;
+let playerRounds = 5;
 let round = 0;
+let emoji = "";
+
+const rockrEmoji = "✊";
+const paperEmoji = "🖐️";
+const sciEmoji = "✌️";
 
 
 // Determine the computers choice
@@ -81,12 +87,15 @@ function playRound(humanChoice, computerChoice) {
     
 }
 
-function playGame() {
-for (let i = 1; i < 6; i++) {
-    const humanSelection = getHumanChoice();
-    const computerSelection = getComputerChoice();
-    playRound(humanSelection, computerSelection);
-}
+function playGame(e) {
+    console.log(e.id)
+    if (round >= playerRounds - 1) {
+        console.log(`Game Over! Final Score: Computer: ${computerScore}. Player: ${humanScore}.`);
+    } else {
+        const humanSelection = e.id;
+        const computerSelection = getComputerChoice();
+        playRound(humanSelection, computerSelection);
+    }
 
 }
 
@@ -126,5 +135,3 @@ btn.onclick = () => alert('Hello World!');
 btn2.addEventListener('click', () => {
     alert('Hello World!');
 });
-
-//🖐️✊✌️
