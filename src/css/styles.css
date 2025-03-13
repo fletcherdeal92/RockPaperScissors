@@ -8,14 +8,19 @@
     margin: 0;
 }
 
+/* Style the Header/Score sectoion */
+
 .container {
+    display: flex;
+}
+
+#gameArea {
     width: 100vw;
     height: 100vh;
     background-color: black;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     color: white;
+    display: grid;
+    grid-template-rows: 1fr 2fr 6fr 2fr;
 }
 
 h1.hero {
@@ -24,10 +29,98 @@ h1.hero {
     letter-spacing: .5rem;
 }
 
+.heroText {
+    width: 100vw;
+    padding: 1vh 0;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+}
+
 .heroText > p {
     text-align: center;
     line-height: 2rem;
 }
+
+.scoreKeeping {
+    padding: 1vh 0;
+    background-color: #36454f97;
+    width: 100vw;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.block {
+    text-align: center;
+    min-width: 15%;
+    text-transform: uppercase;
+}
+
+.score {
+    font-size: 3rem;
+    font-weight: 900;
+}
+
+.tagline {
+    font-size: 1.5rem;
+    letter-spacing: .15rem;
+}
+
+/* Style the "Action" section */
+.action {
+    width: 100vw;
+    min-height: 25vh;
+    padding: 1vh 0;
+    display: grid;
+    grid-row: 100%;
+    grid-template-columns: 2fr 1fr 2fr;
+}
+
+.action > .container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 5rem;
+}
+
+#vs {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+}
+
+/* Style the PlayerInput section */
+.playerInput {
+    width: 100vw;
+    min-height: 15vh;
+    padding: 1vh 0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #36454f97;
+}
+
+.playerInput > button {
+    display: flex;
+    flex-direction: column;
+    height: 70%;
+    min-height: 10vh;
+    width: 25vw;
+    font-size: 2.5rem;
+    line-height: 1.5rem;
+    align-items: center;
+    justify-content: center;
+}
+
+button > #label {
+    font-size: 1rem;
+}
+/* Style the EndGame section */
+
+/* STREATCH Style the PlayerInput section */
 
 .testContent {
     text-align: center;

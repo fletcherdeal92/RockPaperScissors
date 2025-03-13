@@ -126,3 +126,5 @@ btn.onclick = () => alert('Hello World!');
 btn2.addEventListener('click', () => {
     alert('Hello World!');
 });
+
+//🖐️✊✌️

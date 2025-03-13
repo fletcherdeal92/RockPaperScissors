@@ -10,18 +10,41 @@
     <title>Rock Paper Scissors</title>
 </head>
 <body>
-    <div class="container">
-        <div class="heroText">
+    <div ID="gameArea" class="container">
+        <div class="heroText container">
             <h1 class="hero">Rock, Paper, Scissors</h1>
             <p>An Experiment by Fletcher Deal</p>
         </div>
-    </div>
-    <div class="container2">
-    </div>
-    <div class="buttons">
-        <button onclick="alert('Hello WOrld')">Click Me</button>
-        <button id="btn">Click Me 2</button>
-        <button id="btn2">Click Me 3</button>
+        <div class="scoreKeeping container">
+            <div class="block">
+                <h2 id="playerScore" class="score">00</h2>
+                <h4 class="tagline">Player</h4>
+            </div>
+
+            <div class="block">
+                <h4 class="tagline">Round</h4>
+                <h2 id="round" class="score">FIVE</h2>
+            </div>
+
+            <div class="block">
+                <h2 id="computerScore" class="score">00</h2>
+                <h4 class="tagline">Computer</h4>
+            </div>
+        </div>
+        <div class="action container">
+            <div class="playerChoice container">
+                🖐️
+            </div>
+            <div id="vs" class="container">VS.</div>
+            <div class="computerChoice container">
+                🖐️
+            </div>
+        </div>
+        <div class="playerInput container">
+            <button id="rock" class="btn">✊ </br> <span id="label">Rock</span></button>
+            <button id="paper" class="btn">🖐️ </br> <span id="label">Paper</span></button>
+            <button id="scissors" class="btn">✌️ </br> <span id="label">Scissors</span></button>
+        </div>
     </div>
     <script src="./src/scripts/script.js"></script>
 </body>
