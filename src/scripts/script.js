@@ -85,11 +85,44 @@ function playGame() {
 for (let i = 1; i < 6; i++) {
     const humanSelection = getHumanChoice();
     const computerSelection = getComputerChoice();
-    playRound(humanSelection, computerSelection)
+    playRound(humanSelection, computerSelection);
 }
 
 }
 
-playGame();
+//playGame();
+
+const container = document.querySelector('.container2');
+const p = document.createElement('p');
+const h3 = document.createElement('h3');
+const h1 = document.createElement('h1');
+
+const content = document.createElement('div');
+content.classList.add('testContent');
+
+h1.textContent = `I'm in a DIV`;
+p.textContent = `ME TOO!`;
+content.appendChild(h1);
+content.appendChild(p);
 
 
+let paraContent = document.createElement('p');
+paraContent.classList.add('redText');
+paraContent.textContent = `Hey I'm red!`;
+
+let headerContent = h3;
+headerContent.classList.add('blueText');
+headerContent.textContent = `I'm blue!`;
+
+container.appendChild(paraContent);
+container.appendChild(headerContent);
+container.appendChild(content);
+
+const btn = document.querySelector('#btn');
+const btn2 = document.querySelector('#btn2');
+
+btn.onclick = () => alert('Hello World!');
+
+btn2.addEventListener('click', () => {
+    alert('Hello World!');
+});
