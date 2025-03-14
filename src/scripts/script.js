@@ -18,10 +18,8 @@ const paperEmoji = '🖐️';
 const sciEmoji = '✌️';
 
 const rootElement = document.querySelector('#gameArea');
-const viewPortH = rootElement.getBoundingClientRect().height;
-const windowH = window.innerHeight;
-const browserUIBarsH = viewPortH - windowH;
-rootElement.computedStyleMap.height = `calc(100vh - ${browserUIBarsH}px)`;
+console.log(rootElement);
+rootElement.style.height = `${window.innerHeight}px`;
 
 
 // Determine the computers choice
