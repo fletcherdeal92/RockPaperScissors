@@ -17,21 +17,21 @@
         </div>
         <div class="scoreKeeping container">
             <div class="block">
-                <h2 id="playerScore" class="score">00</h2>
+                <h2 id="playerScore" class="score"></h2>
                 <h4 class="tagline">Player</h4>
             </div>
 
             <div class="block">
                 <h4 class="tagline">Round</h4>
-                <h2 id="round" class="score">FIVE</h2>
+                <h2 id="round" class="score"></h2>
             </div>
 
             <div class="block">
-                <h2 id="computerScore" class="score">00</h2>
+                <h2 id="computerScore" class="score"></h2>
                 <h4 class="tagline">Computer</h4>
             </div>
         </div>
-        <div class="action container">
+        <div id="roundWindow" class="action container">
             <div class="playerChoice container">
                 🖐️
             </div>
@@ -44,6 +44,32 @@
             <button id="rock" class="btn" onclick="playGame(rock)">✊ </br> <span id="label">Rock</span></button>
             <button id="paper" class="btn" onclick="playGame(paper)">🖐️ </br> <span id="label">Paper</span></button>
             <button id="scissors" class="btn" onclick="playGame(scissors)">✌️ </br> <span id="label">Scissors</span></button>
+        </div>
+    </div>
+    <div class="endstate">
+        <div class="mainContainer">
+            <H1 id="winMSG">
+                Text Here
+            </H1>
+            <div class="scoreKeeping container">
+                <div class="block">
+                    <h2 id="playerScore" class="score">00</h2>
+                    <h4 class="tagline">Player</h4>
+                </div>
+    
+                <div class="block">
+                    <h4 class="tagline">Round</h4>
+                    <h2 id="round" class="score">00</h2>
+                </div>
+    
+                <div class="block">
+                    <h2 id="computerScore" class="score">00</h2>
+                    <h4 class="tagline">Computer</h4>
+                </div>
+            </div>
+            <div class="controls">
+                <button id="playAgain" class="btn" onclick="resetGame()">Play Again</button>
+            </div>
         </div>
     </div>
     <script src="./src/scripts/script.js"></script>
