@@ -200,6 +200,15 @@ function updateDOM() {
 function setGameOverState() {
     const gameOverScreen = document.querySelector('#gameOver');
     gameOverScreen.classList.add('endScreen');
+
+    const endtimes = document.querySelector('.endstate > .mainContainer');
+    if (humanScore > computerScore) {
+        endtimes.style.boxShadow = '0 0 25px 12px #7abc2a';
+    } else if (humanScore === computerScore) {
+        endtimes.style.boxShadow = '0 0 25px 12px #f7f7f7';
+    } else if (humanScore < computerScore) {
+        endtimes.style.boxShadow = '0 0 25px 12px #ff0000';
+    }
 }
 
 function removeGameOverState() {
@@ -260,5 +269,7 @@ function resetGame() {
     updateDOM();
     winSatateEffects();
 }
+
+
 
 updateDOM();
