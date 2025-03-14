@@ -54,7 +54,7 @@ h1.hero {
 
 .block {
     text-align: center;
-    min-width: 15%;
+    min-width: 25vw;
     text-transform: uppercase;
 }
 
@@ -123,11 +123,12 @@ button > #label {
 .endstate {
     position: absolute;
     display: flex;
+    visibility: hidden;
     left: 0;
     top: 0;
     width: 100vw;
     height: 100vh;
-    background: rgba(255, 255, 255, 0);
+    background: rgba(0, 0, 0, .95);
     justify-content: center;
     align-items: center;
 }
@@ -136,14 +137,23 @@ button > #label {
     display: flex;
     flex-direction: column;
     opacity: .95;
-    background-color: red;
+    background-color: rgba(0, 0, 0, 1);
     padding: 1.5rem;
     text-align: center;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    box-shadow: 0 0 25px 12px #7abc2a;
 }
 
 .mainContainer > .scoreKeeping {
     width: 100%;
     background: none;
+    margin: 2.75rem 0;
+}
+
+.endScreen {
+    visibility: visible;
 }
 /* STREATCH Style the PlayerInput section */
 

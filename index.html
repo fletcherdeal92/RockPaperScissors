@@ -17,7 +17,7 @@
         </div>
         <div class="scoreKeeping container">
             <div class="block">
-                <h2 id="playerScore" class="score"></h2>
+                <h2 class="score playerScore"></h2>
                 <h4 class="tagline">Player</h4>
             </div>
 
@@ -27,7 +27,7 @@
             </div>
 
             <div class="block">
-                <h2 id="computerScore" class="score"></h2>
+                <h2 class="score computerScore"></h2>
                 <h4 class="tagline">Computer</h4>
             </div>
         </div>
@@ -41,29 +41,29 @@
             </div>
         </div>
         <div class="playerInput container">
-            <button id="rock" class="btn" onclick="playGame(rock)">✊ </br> <span id="label">Rock</span></button>
-            <button id="paper" class="btn" onclick="playGame(paper)">🖐️ </br> <span id="label">Paper</span></button>
-            <button id="scissors" class="btn" onclick="playGame(scissors)">✌️ </br> <span id="label">Scissors</span></button>
+            <button id="rock" class="btn inputBtn" onclick="playGame(rock)">✊ </br> <span id="label">Rock</span></button>
+            <button id="paper" class="btn inputBtn" onclick="playGame(paper)">🖐️ </br> <span id="label">Paper</span></button>
+            <button id="scissors" class="btn inputBtn" onclick="playGame(scissors)">✌️ </br> <span id="label">Scissors</span></button>
         </div>
     </div>
-    <div class="endstate">
+    <div id="gameOver" class="endstate">
         <div class="mainContainer">
             <H1 id="winMSG">
-                Text Here
+                Game Over
             </H1>
             <div class="scoreKeeping container">
                 <div class="block">
-                    <h2 id="playerScore" class="score">00</h2>
+                    <h2 class="score endPlayerScore"></h2>
                     <h4 class="tagline">Player</h4>
                 </div>
     
                 <div class="block">
-                    <h4 class="tagline">Round</h4>
-                    <h2 id="round" class="score">00</h2>
+                    <h4 class="tagline">Final</h4>
+                    <h2 id="round" class="score">Score</h2>
                 </div>
     
                 <div class="block">
-                    <h2 id="computerScore" class="score">00</h2>
+                    <h2 class="score endCompScore"></h2>
                     <h4 class="tagline">Computer</h4>
                 </div>
             </div>
