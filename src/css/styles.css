@@ -20,7 +20,7 @@
     background-color: black;
     color: white;
     display: grid;
-    grid-template-rows: 1fr 2fr 6fr 2fr;
+    grid-template-rows: 1fr 2fr 10fr 2fr;
 }
 
 h1.hero {
@@ -157,6 +157,7 @@ button > #label {
 }
 /* STREATCH Style the PlayerInput section */
 
+/* Win-State Coloring */
 .winRound {
     border: none;
     box-shadow: inset 0 0 50px 10px green;
@@ -167,14 +168,14 @@ button > #label {
     box-shadow: inset 0 0 50px 10px red;
 }
 
-.testContent {
-    text-align: center;
-}
-
-.redText {
-    color: red;
-}
-
-.blueText {
-    color: green;
+/* MOBILE STYLES */
+@media only screen and (max-width: 725px) {
+    *,
+    h1,
+    h2,
+    h3,
+    h4,
+    p {
+        font-size: 1rem!important;
+    }
 }
