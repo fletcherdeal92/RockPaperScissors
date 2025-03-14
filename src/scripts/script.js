@@ -7,6 +7,7 @@ let playerRounds = 5;
 let round = 1;
 let roundName = 'one';
 let emoji = '';
+let npcEmoji = '';
 let humanInput = '';
 let computerInput = '';
 let message = '';
@@ -19,6 +20,11 @@ let gameplay = false;
 const rockrEmoji = '✊';
 const paperEmoji = '🖐️';
 const sciEmoji = '✌️';
+
+const npcRockrEmoji = '🗿';
+const npcPaperEmoji = '📄';
+const npcSciEmoji = '✂️';
+
 
 const rootElement = document.querySelector('#gameArea');
 console.log(rootElement);
@@ -131,6 +137,22 @@ function translateEmoji(i) {
     return emoji;
 }
 
+function translateNpcEmoji(i) {
+    
+    if (i === 'rock') {
+        npcEmoji = npcRockrEmoji;
+    } else if (i === 'paper') {
+        npcEmoji = npcPaperEmoji;
+    } else if (i === 'scissors') {
+        npcEmoji = npcSciEmoji;
+    } else if (i === '') {
+        npcEmoji = "?";
+    } else {
+        npcEmoji = "🤷";
+    }
+    return npcEmoji;
+}
+
 function translateNumber(x)  {
     switch (x) {
 
@@ -196,13 +218,15 @@ function updateDOM() {
     const endPCScore = document.querySelector('.endCompScore');
     const endRoundScoreDOM = document.querySelector('#roundTally');
     const messageDOM = document.querySelector('#message');
+
     playerScore.textContent = `${humanScore}`;
     endPlayerScore.textContent = `${humanScore}`;
     pcScore.textContent = `${computerScore}`;
     endPCScore.textContent = `${computerScore}`;
     roundDOM.textContent = `${round} of ${playerRounds}`;
     console.log(`update dom - ${round}`);
-    computerEmojiDOM.textContent = `${translateEmoji(computerInput)}`;
+    
+    computerEmojiDOM.textContent = `${translateNpcEmoji(computerInput)}`;
     humanEmojiDOM.textContent = `${translateEmoji(humanInput)}`;
     console.log(message);
     messageDOM.textContent = `${message}`;
