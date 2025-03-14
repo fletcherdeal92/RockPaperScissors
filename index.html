@@ -32,6 +32,15 @@
             </div>
         </div>
         <div id="roundWindow" class="action container">
+            <div class="roundInfo">
+                <div class="block">
+                    <div>
+                        <h4>Round </h4>
+                        <h2 id="roundTally"></h2>
+                    </div>
+                    <h3 id="message">message</h3>
+                </div>
+            </div>
             <div class="playerChoice container mobile-container">
                 🖐️
             </div>
@@ -41,9 +50,9 @@
             </div>
         </div>
         <div class="playerInput container">
-            <button id="rock" class="btn inputBtn" onclick="playGame(rock)">✊ </br> <span id="label">Rock</span></button>
-            <button id="paper" class="btn inputBtn" onclick="playGame(paper)">🖐️ </br> <span id="label">Paper</span></button>
-            <button id="scissors" class="btn inputBtn" onclick="playGame(scissors)">✌️ </br> <span id="label">Scissors</span></button>
+            <button id="rock" class="btn inputBtn" onclick="stateCheck(rock)">✊ </br> <span id="label">Rock</span></button>
+            <button id="paper" class="btn inputBtn" onclick="stateCheck(paper)">🖐️ </br> <span id="label">Paper</span></button>
+            <button id="scissors" class="btn inputBtn" onclick="stateCheck(scissors)">✌️ </br> <span id="label">Scissors</span></button>
         </div>
     </div>
     <div id="gameOver" class="endstate">

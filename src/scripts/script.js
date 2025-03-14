@@ -9,9 +9,12 @@ let roundName = 'one';
 let emoji = '';
 let humanInput = '';
 let computerInput = '';
+let message = '';
 
 let state = '';
 let finalRound = false;
+
+let gameplay = false;
 
 const rockrEmoji = '✊';
 const paperEmoji = '🖐️';
@@ -59,44 +62,42 @@ const getHumanChoice = () => {
 
 // Play a round of RPS
 function playRound(humanChoice, computerChoice) {
-
-    let message = `You picked ${humanChoice}, and the computer picked ${computerChoice}.`;
     round ++;
 
     humanInput = humanChoice;
     computerInput = computerChoice;
 
     if (humanChoice === computerChoice) {
-         message = `You both picked ${humanChoice}, this game is tied. No points`;
+         message = `It's A Tie`;
          state = 'tie';
     } 
 
     if (humanChoice === 'rock' && computerChoice === 'paper') {
-        message += ' The Computer wins this round.';
+        message = 'DEFEAT!';
         state = 'lose'
         computerScore ++;
     } else if (humanChoice === 'rock' && computerChoice === 'scissors') {
-        message += ' Congratulations, you win this round';
+        message = 'WINNER!';
         state = 'win';
         humanScore ++;
     }
     
     if (humanChoice === 'paper' && computerChoice === 'scissors') {
-        message += ' The Computer wins this round.';
+        message = 'DEFEAT!';
         state = 'lose';
         computerScore ++;
     } else if (humanChoice === 'paper' && computerChoice === 'rock') {
-        message += ' Congratulations, you win this round';
+        message = 'WINNER!';
         state = 'win';
         humanScore ++;
     }
     
     if (humanChoice === 'scissors' && computerChoice === 'rock') {
-        message += ' The Computer wins this round.';
+        message = 'DEFEAT!';
         state = 'lose';
         computerScore ++;
     } else if (humanChoice === 'scissors' && computerChoice === 'paper') {
-        message += ' Congratulations, you win this round';
+        message = 'WINNER!';
         state = 'win';
         humanScore ++;
     }
@@ -160,21 +161,29 @@ function translateNumber(x)  {
 
  function winSatateEffects() {
     // console.log(`state is ${state}`);
+    document.querySelector('.roundInfo').style.visibility = 'visible';
+
     let winner = 'winRound'
     let loser = 'loseRound'
     if (state === 'win') {
-        document.querySelector('#roundWindow').classList.add(`${winner}`);
-        document.querySelector('#roundWindow').classList.remove(`${loser}`);
+        document.querySelector('.roundInfo').classList.add(`${winner}`);
+        document.querySelector('.roundInfo').classList.remove(`${loser}`);
         // console.log(`state is ${state}`);
     } else if (state === 'lose') {
-        document.querySelector('#roundWindow').classList.add(`${loser}`);
-        document.querySelector('#roundWindow').classList.remove(`${winner}`);
+        document.querySelector('.roundInfo').classList.add(`${loser}`);
+        document.querySelector('.roundInfo').classList.remove(`${winner}`);
         // console.log(`state is ${state}`);
     } else {
-        document.querySelector('#roundWindow').classList.remove(`${winner}`);
-        document.querySelector('#roundWindow').classList.remove(`${loser}`);
+        document.querySelector('.roundInfo').classList.remove(`${winner}`);
+        document.querySelector('.roundInfo').classList.remove(`${loser}`);
         // console.log(`state is ${state}`);
     }
+
+    setTimeout(() => {
+        document.querySelector('.roundInfo').style.visibility = 'hidden'; 
+        gameplay = false;
+    }, 2000);
+
 }
 
 function updateDOM() {
@@ -185,16 +194,21 @@ function updateDOM() {
     const computerEmojiDOM = document.querySelector('.computerChoice');
     const endPlayerScore = document.querySelector('.endPlayerScore');
     const endPCScore = document.querySelector('.endCompScore');
-
-    
+    const endRoundScoreDOM = document.querySelector('#roundTally');
+    const messageDOM = document.querySelector('#message');
+;
     playerScore.textContent = `${humanScore}`;
     endPlayerScore.textContent = `${humanScore}`;
     pcScore.textContent = `${computerScore}`;
     endPCScore.textContent = `${computerScore}`;
-    roundDOM.textContent = `${translateNumber(round)}`;
+    roundDOM.textContent = `${round} of ${playerRounds}`;
     console.log(`update dom - ${round}`);
     computerEmojiDOM.textContent = `${translateEmoji(computerInput)}`;
     humanEmojiDOM.textContent = `${translateEmoji(humanInput)}`;
+    console.log(message);
+    messageDOM.textContent = `${message}`;
+
+    finalRound ? endRoundScoreDOM.textContent = `${ playerRounds}` : endRoundScoreDOM.textContent = `${ round - 1}`;
 }
 
 function setGameOverState() {
@@ -217,13 +231,20 @@ function removeGameOverState() {
 }
 
 function checkGameState() {
-    gameOver ? console.log('Game Over!') : console.log('Game is still going');
+    finalRound ? console.log('Game Over!') : console.log('Game is still going');
     console.log(`Defaults match? 0, 0, 5, 1, one, '', '', '', '', false`);
     console.log(`${humanScore}, ${computerScore}, ${playerRounds}, ${round}, ${roundName}, ${emoji}, ${humanInput}, ${computerInput}, ${state}, ${gameOver}`);
 } 
 
+function stateCheck(e) {
+    gameplay ? console.log('playing') : playGame(e);
+}
+
 function playGame(e) {
+    gameplay = true;
     console.log(e.id);
+    console.log('playGame Start');
+
     if (round === playerRounds) {
         console.log(`final round`);
         
@@ -234,13 +255,15 @@ function playGame(e) {
         round = playerRounds;
 
         updateDOM();
-        gameOver = true;
-
+        finalRound = true;
+        updateDOM();
+        winSatateEffects();
         setTimeout(() => {
             setGameOverState();
-        }, 1000);
+        }, 2000);
 
         updateDOM();
+        console.log('playGame end');
 
     } else {
         const humanSelection = e.id;
@@ -263,7 +286,7 @@ function resetGame() {
     humanInput = '';
     computerInput = '';
     state = '';
-    gameOver = false;
+    finalRound = false;
     checkGameState();
     removeGameOverState();
     updateDOM();

@@ -74,8 +74,8 @@ h1.hero {
     min-height: 25vh;
     padding: 1vh 0;
     display: grid;
-    grid-row: 100%;
     grid-template-columns: 2fr 1fr 2fr;
+    position: relative;
 }
 
 .action > .container {
@@ -154,7 +154,43 @@ button > #label {
 .endScreen {
     visibility: visible;
 }
+
+
 /* STREATCH Style the PlayerInput section */
+
+
+/* STREATCH Style a round state that appears and then dissapears */
+.roundInfo {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.583);
+    visibility: hidden;
+}
+
+.roundInfo > .block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1 fr 2fr;
+
+    #message {grid-column: 1/3; grid-row: 2;}
+    div {display: flex; justify-content: center; align-items: center; grid-column: 1/3;}
+}
+
+.roundInfo > .block > div > h2,
+.roundInfo > .block > div > h4 {
+    font-size: 3rem;
+    font-weight: 200;
+    padding: 10px 10px;
+}
+
+.roundInfo > .block > h3 {
+    font-size: 7rem;
+    font-weight: 900;
+}
 
 /* Win-State Coloring */
 .winRound {
@@ -175,7 +211,7 @@ button > #label {
     h3,
     h4,
     p {
-        font-size: 1rem !important;
+        font-size: 1rem;
     }
 
     .heroText > h1 {
