@@ -196,7 +196,6 @@ function updateDOM() {
     const endPCScore = document.querySelector('.endCompScore');
     const endRoundScoreDOM = document.querySelector('#roundTally');
     const messageDOM = document.querySelector('#message');
-;
     playerScore.textContent = `${humanScore}`;
     endPlayerScore.textContent = `${humanScore}`;
     pcScore.textContent = `${computerScore}`;
@@ -228,6 +227,7 @@ function setGameOverState() {
 function removeGameOverState() {
     const gameOverScreen = document.querySelector('#gameOver');
     gameOverScreen.classList.remove('endScreen');
+    document.querySelector('.roundInfo').style.visibility = 'hidden'; 
 }
 
 function checkGameState() {
@@ -260,23 +260,21 @@ function playGame(e) {
         winSatateEffects();
         setTimeout(() => {
             setGameOverState();
-        }, 2000);
-
-        updateDOM();
-        console.log('playGame end');
+        }, 3000);
 
     } else {
         const humanSelection = e.id;
         const computerSelection = getComputerChoice();
         playRound(humanSelection, computerSelection);
         checkGameState();
-        updateDOM();
         winSatateEffects();
+        updateDOM();
     }
 
 }
 
 function resetGame() {
+    document.querySelector('.roundInfo').style.visibility = 'hidden'; 
     humanScore = 0;
     computerScore = 0;
     playerRounds = 5;
@@ -287,10 +285,10 @@ function resetGame() {
     computerInput = '';
     state = '';
     finalRound = false;
+    message = '';
+    gameplay = false;
     checkGameState();
     removeGameOverState();
-    updateDOM();
-    winSatateEffects();
 }
 
 
